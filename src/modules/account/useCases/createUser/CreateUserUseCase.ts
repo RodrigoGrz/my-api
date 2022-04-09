@@ -11,7 +11,7 @@ class CreateUserUseCase {
         private usersRepository: IUsersRepository
     ) { }
 
-    async execute({ name, email, password, avatar = "default.png", created_by, updated_by }: ICreateUserDTO): Promise<void> {
+    async execute({ name, email, password, avatar = "default.png" }: ICreateUserDTO): Promise<void> {
         const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
         if (userAlreadyExists) {
@@ -25,8 +25,6 @@ class CreateUserUseCase {
             email,
             password: hashPassword,
             avatar,
-            created_by,
-            updated_by
         });
     }
 }

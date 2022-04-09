@@ -22,20 +22,11 @@ class User {
     @CreateDateColumn()
     created_at: Date;
 
-    @Column()
-    created_by: string;
-
     @UpdateDateColumn()
     updated_at: Date;
 
-    @Column()
-    updated_by: string;
-
     @DeleteDateColumn()
     deleted_at: Date;
-
-    @Column()
-    deleted_by: string;
 
     constructor() {
         if (!this.id) {
