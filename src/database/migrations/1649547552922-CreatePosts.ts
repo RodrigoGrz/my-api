@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateUser1646955641183 implements MigrationInterface {
+export class CreatePosts1649547552922 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "users",
+                name: "posts",
                 columns: [
                     {
                         name: "id",
@@ -13,19 +13,15 @@ export class CreateUser1646955641183 implements MigrationInterface {
                         isPrimary: true,
                     },
                     {
-                        name: "name",
+                        name: "user_id",
+                        type: "uuid",
+                    },
+                    {
+                        name: "title",
                         type: "varchar",
                     },
                     {
-                        name: "email",
-                        type: "varchar",
-                    },
-                    {
-                        name: "password",
-                        type: "varchar",
-                    },
-                    {
-                        name: "avatar",
+                        name: "description",
                         type: "varchar",
                     },
                     {
@@ -42,14 +38,25 @@ export class CreateUser1646955641183 implements MigrationInterface {
                         name: "deleted_at",
                         type: "timestamp",
                         isNullable: true,
-                    },
+                        default: null,
+                    }
+                ],
+                foreignKeys: [
+                    {
+                        name: "FKUser",
+                        referencedTableName: "users",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["user_id"],
+                        onUpdate: "SET NULL",
+                        onDelete: "SET NULL",
+                    }
                 ]
             })
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("users");
+        await queryRunner.dropTable("posts");
     }
 
 }

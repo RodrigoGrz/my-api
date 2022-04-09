@@ -7,7 +7,7 @@ import createConnection from '../../../../database';
 
 let connection: Connection;
 
-describe("List Users", () => {
+describe("List Users Controller", () => {
     beforeEach(async () => {
         connection = await createConnection();
         await connection.runMigrations();
