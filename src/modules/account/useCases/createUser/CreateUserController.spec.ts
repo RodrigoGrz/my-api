@@ -24,8 +24,6 @@ describe("Create User Controller", () => {
             name: "User SuperTest",
             email: "email@supertest.com",
             password: "1234",
-            created_by: "id1234",
-            updated_by: "id1234"
         });
 
         expect(response.status).toBe(201);

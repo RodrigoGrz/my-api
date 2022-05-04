@@ -14,6 +14,18 @@ class CreateUserUseCase {
     async execute({ name, email, password, avatar = "default.png" }: ICreateUserDTO): Promise<void> {
         const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
+        if (!name) {
+            throw new Error("The field name do not to be empty");
+        }
+
+        if (!email) {
+            throw new Error("The field email do not to be empty");
+        }
+
+        if (!password) {
+            throw new Error("The field password do not to be empty");
+        }
+
         if (userAlreadyExists) {
             throw new Error("User already exists!");
         }

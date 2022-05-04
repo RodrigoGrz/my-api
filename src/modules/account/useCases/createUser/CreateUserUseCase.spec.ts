@@ -48,4 +48,46 @@ describe("Create User UseCase", () => {
             password: user.password
         })).rejects.toEqual(new Error("User already exists!"));
     });
+
+    it("should not be able to create a new user with email field empty", async () => {
+        const user: ICreateUserDTO = {
+            name: "User sample",
+            email: "",
+            password: "1234",
+        }
+
+        await expect(createUserUseCase.execute({
+            name: user.name,
+            email: user.email,
+            password: user.password
+        })).rejects.toEqual(new Error("The field email do not to be empty"));
+    });
+
+    it("should not be able to create a new user with password field empty", async () => {
+        const user: ICreateUserDTO = {
+            name: "User sample",
+            email: "email@test.com",
+            password: "",
+        }
+
+        await expect(createUserUseCase.execute({
+            name: user.name,
+            email: user.email,
+            password: user.password
+        })).rejects.toEqual(new Error("The field password do not to be empty"));
+    });
+
+    it("should not be able to create a new user with name field empty", async () => {
+        const user: ICreateUserDTO = {
+            name: "",
+            email: "email@test.com",
+            password: "1234",
+        }
+
+        await expect(createUserUseCase.execute({
+            name: user.name,
+            email: user.email,
+            password: user.password
+        })).rejects.toEqual(new Error("The field name do not to be empty"));
+    });
 });
