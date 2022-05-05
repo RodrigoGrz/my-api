@@ -1,7 +1,7 @@
-interface ICreatePosts {
+interface ICreatePostsDTO {
     user_id: string;
     title: string;
     description: string;
 }
 
-export { ICreatePosts };
+export { ICreatePostsDTO };

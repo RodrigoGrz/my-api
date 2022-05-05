@@ -25,6 +25,10 @@ class UsersRepositoryInMemory implements IUsersRepository {
     async findAllNotDeleted(): Promise<User[]> {
         return this.users.filter(user => user.deleted_at === null);
     }
+
+    async listById(id: string): Promise<User> {
+        return this.users.find(user => user.id === id);
+    }
 }
 
 export { UsersRepositoryInMemory };

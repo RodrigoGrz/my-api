@@ -1,12 +1,15 @@
 # MY API
 
+NEWS FEATURES
+
+* Create a new Post
+
 NEXT FEATURES SOON (not exactly in this order)
 
 * Update Account Avatar
 * List User By E-mail
 * Authentication
 * Documentation with Swagger
-* Create a new Post
 * Delete a post
 * Disable User Account
 * ...more
