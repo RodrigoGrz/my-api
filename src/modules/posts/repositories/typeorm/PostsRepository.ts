@@ -1,4 +1,4 @@
-import { getRepository, IsNull, Repository } from "typeorm";
+import { getRepository, IsNull, Not, Repository } from "typeorm";
 import { ICreatePostsDTO } from "../../dtos/ICreatePostsDTO";
 import { Post } from "../../entities/Post";
 import { IPostsRepository } from "../IPostsRepository";
@@ -27,6 +27,23 @@ class PostsRepository implements IPostsRepository {
                 deleted_at: IsNull()
             }
         });
+    }
+
+    async listById(id: string): Promise<Post> {
+        return await this.repository
+            .createQueryBuilder()
+            .where("id = :id", { id })
+            .getOne();
+    }
+
+    async disable(id: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder("posts")
+            .update()
+            .set({ deleted_at: new Date() })
+            .where("posts.id = :id")
+            .setParameters({ id })
+            .execute();
     }
 }
 

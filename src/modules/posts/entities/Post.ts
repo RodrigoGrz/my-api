@@ -27,7 +27,7 @@ class Post {
     @UpdateDateColumn()
     updated_at: Date;
 
-    @DeleteDateColumn()
+    @Column()
     deleted_at: Date;
 
     constructor() {

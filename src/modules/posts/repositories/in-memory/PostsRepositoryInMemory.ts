@@ -11,7 +11,8 @@ class PostsRepositoryInMemory implements IPostsRepository {
         Object.assign(post, {
             user_id,
             title,
-            description
+            description,
+            deleted_at: null
         });
 
         this.posts.push(post);
@@ -21,6 +22,18 @@ class PostsRepositoryInMemory implements IPostsRepository {
         const post = this.posts.filter(post => post.title === title);
 
         return post;
+    }
+
+    async listById(id: string): Promise<Post> {
+        return this.posts.find(post => post.id === id);
+    }
+
+    async disable(id: string): Promise<void> {
+        const post = this.posts.find(post => post.id === id);
+
+        if (post) {
+            post.deleted_at = new Date();
+        }
     }
 }
 
