@@ -38,6 +38,19 @@ class UsersRepository implements IUsersRepository {
         });
     }
 
+    async findUser(email?: string): Promise<User | User[]> {
+        const userQuery = this.repository
+            .createQueryBuilder("users")
+
+        if (email) {
+            userQuery.andWhere("users.email = :email", { email })
+        }
+
+        const user = await userQuery.getMany();
+
+        return user;
+    }
+
     async listById(id: string): Promise<User> {
         return await this.repository.findOne(id);
     }

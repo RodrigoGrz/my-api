@@ -26,6 +26,14 @@ class UsersRepositoryInMemory implements IUsersRepository {
         return this.users.filter(user => user.deleted_at === null);
     }
 
+    async findUser(email?: string): Promise<User | User[]> {
+        if (email) {
+            return this.users.find(user => user.email === email);
+        }
+
+        return this.users;
+    }
+
     async listById(id: string): Promise<User> {
         return this.users.find(user => user.id === id);
     }

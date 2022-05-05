@@ -2,12 +2,12 @@
 
 NEWS FEATURES
 
+* List User By E-mail
 * Create a new Post
 
 NEXT FEATURES SOON (not exactly in this order)
 
 * Update Account Avatar
-* List User By E-mail
 * Authentication
 * Documentation with Swagger
 * Delete a post

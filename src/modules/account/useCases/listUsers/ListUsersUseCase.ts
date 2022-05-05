@@ -10,8 +10,8 @@ class ListUsersUseCase {
         private usersRepository: IUsersRepository
     ) { }
 
-    async execute(): Promise<User[]> {
-        const users = await this.usersRepository.findAllNotDeleted();
+    async execute(email?: string): Promise<User | User[]> {
+        const users = await this.usersRepository.findUser(email);
 
         return users;
     }

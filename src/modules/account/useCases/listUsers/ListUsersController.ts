@@ -4,9 +4,11 @@ import { ListUsersUseCase } from "./ListUsersUseCase";
 
 class ListUsersController {
     async handle(request: Request, response: Response): Promise<Response> {
+        const { email } = request.query;
+
         const listUsersUseCase = container.resolve(ListUsersUseCase);
 
-        const users = await listUsersUseCase.execute();
+        const users = await listUsersUseCase.execute(email as string);
 
         return response.json(users);
     }
