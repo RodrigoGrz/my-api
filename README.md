@@ -2,18 +2,12 @@
 
 NEWS FEATURES
 
-* Delete a post
-
-Latest Features
-
-* List User By E-mail
-* Create a new Post
+* Documentation with Swagger
 
 NEXT FEATURES SOON (not exactly in this order)
 
 * Update Account Avatar
 * Authentication
-* Documentation with Swagger
 * Disable User Account
 * ...more
 

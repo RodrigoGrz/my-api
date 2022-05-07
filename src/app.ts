@@ -4,6 +4,9 @@ import "express-async-errors";
 import path from 'path';
 import cors from 'cors';
 
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "./swagger.json";
+
 import { router } from './routes';
 
 import createConnection from './database';
@@ -19,6 +22,8 @@ app.use(router);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'public', 'views'));
 app.use(express.static('public'));
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
     if (err instanceof Error) {
