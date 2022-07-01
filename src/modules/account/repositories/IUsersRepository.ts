@@ -7,6 +7,7 @@ interface IUsersRepository {
     findAllNotDeleted(): Promise<User[]>;
     findUser(email?: string): Promise<User | User[]>;
     listById(id: string): Promise<User>;
+    disable(id: string): Promise<void>;
 }
 
 export { IUsersRepository };

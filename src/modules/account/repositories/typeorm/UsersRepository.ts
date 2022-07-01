@@ -54,6 +54,16 @@ class UsersRepository implements IUsersRepository {
     async listById(id: string): Promise<User> {
         return await this.repository.findOne(id);
     }
+
+    async disable(id: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder("users")
+            .update()
+            .set({ deleted_at: new Date() })
+            .where("users.id = :id")
+            .setParameters({ id })
+            .execute();
+    }
 }
 
 export { UsersRepository };

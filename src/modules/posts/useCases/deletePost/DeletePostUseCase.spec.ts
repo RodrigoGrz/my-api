@@ -40,7 +40,7 @@ describe("Disable Post", () => {
 
         const postDisable = await postsRepositoryInMemory.listByTitle("Title example");
 
-        expect(postDisable[0]).toHaveProperty("deleted_at")
+        expect(postDisable[0]).toHaveProperty("deleted_at");
         expect(postDisable[0].deleted_at).not.toBe(null);
     });
 

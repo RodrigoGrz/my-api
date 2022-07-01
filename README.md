@@ -2,13 +2,14 @@
 
 NEWS FEATURES
 
-* Documentation with Swagger
+* Disable User Account
 
 NEXT FEATURES SOON (not exactly in this order)
 
 * Update Account Avatar
 * Authentication
-* Disable User Account
+* Active User Account
+* List Posts
 * ...more
 
 # Why i am development this API?
@@ -36,3 +37,7 @@ This is a API for show my knowledge in API REST with good practices like:
 * Run Migrations - `npm run typeorm migration:run` | `yarn typeorm migration:run`
 * Revert Migration - `npm run typeorm migration:revert` | `yarn typeorm migration:revert`
 * Run Tests - `npm run test` | `yarn test`
+
+# Routes
+
+* Documentation - `http://localhost:3333/api-docs`
