@@ -5,6 +5,7 @@ interface IPostsRepository {
     create({ user_id, title, description }: ICreatePostsDTO): Promise<void>;
     listByTitle(title: string): Promise<Post[]>;
     listById(id: string): Promise<Post>;
+    listAllNotDeleted(): Promise<Post[]>;
     disable(id: string): Promise<void>;
 }
 

@@ -28,6 +28,10 @@ class PostsRepositoryInMemory implements IPostsRepository {
         return this.posts.find(post => post.id === id);
     }
 
+    async listAllNotDeleted(): Promise<Post[]> {
+        return this.posts.filter(post => post.deleted_at === null);
+    }
+
     async disable(id: string): Promise<void> {
         const post = this.posts.find(post => post.id === id);
 

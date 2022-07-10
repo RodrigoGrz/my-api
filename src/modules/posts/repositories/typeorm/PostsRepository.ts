@@ -45,6 +45,14 @@ class PostsRepository implements IPostsRepository {
             .setParameters({ id })
             .execute();
     }
+
+    async listAllNotDeleted(): Promise<Post[]> {
+        return await this.repository.find({
+            where: {
+                deleted_at: IsNull()
+            }
+        })
+    }
 }
 
 export { PostsRepository };

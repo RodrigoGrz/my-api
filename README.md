@@ -2,14 +2,13 @@
 
 NEWS FEATURES
 
-* Disable User Account
+* List Posts
 
 NEXT FEATURES SOON (not exactly in this order)
 
 * Update Account Avatar
 * Authentication
 * Active User Account
-* List Posts
 * ...more
 
 # Why i am development this API?
